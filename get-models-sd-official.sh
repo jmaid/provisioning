@@ -16,6 +16,7 @@ extensions_dir=${webui_dir}/extensions
 cn_models_dir=${extensions_dir}/sd-webui-controlnet/models
 vae_models_dir=${models_dir}/VAE
 upscale_models_dir=${models_dir}/ESRGAN
+lora_models_dir=${models_dir}/LORA
 
 printf "Downloading extensions..."
 cd $extensions_dir
@@ -67,6 +68,14 @@ else
     git clone https://github.com/ototadana/sd-face-editor.git
 fi
 
+# cut off
+printf "Setting up Cut Off...\n"
+if [[ -d sd-cut-off ]]; then
+    (cd sd-cut-off && git pull)
+else
+    git clone https://github.com/hnmr293/sd-webui-cutoff
+fi
+
 # Image Browser
 printf "Setting up Image Browser...\n"
 if [[ -d stable-diffusion-webui-images-browser ]]; then
@@ -91,82 +100,54 @@ else
     git clone https://github.com/Coyote-A/ultimate-upscale-for-automatic1111
 fi
 
-# MajicMix_v7
-model_file=${checkpoints_dir}/majicMIX_realistic.safetensors
-model_url=https://civitai.com/api/download/models/176425
 
-if [[ ! -e ${model_file} ]]; then
-    printf "Downloading majicMIX_realistic...\n"
-    wget -q -O ${model_file} ${model_url}
-fi
+if [[ $disk_space -ge 25000 ]]; then
+    # MajicMix_v7
+    model_file=${sd_models_dir}/majicMIX_realistic.safetensors
+    model_url=https://civitai.com/api/download/models/176425
 
-# creampieElegance
-model_file=${checkpoints_dir}/creampieElegance.safetensors
-model_url=https://civitai.com/api/download/models/152585
+    if [[ ! -e ${model_file} ]]; then
+        printf "Downloading majicMIX_realistic...\n"
+        wget -q -O ${model_file} ${model_url}
+    fi
 
-if [[ ! -e ${model_file} ]]; then
-    printf "Downloading creampieElegance LORA...\n"
-    wget -q -O ${model_file} ${model_url}
-fi
+    # creampieElegance
+    model_file=${lora_models_dir}/creampieElegance.safetensors
+    model_url=https://civitai.com/api/download/models/152585
 
-# creamipeAndHairyPussy
-model_file=${checkpoints_dir}/creamipeAndHairyPussy.safetensors
-model_url=https://civitai.com/api/download/models/18077
+    if [[ ! -e ${model_file} ]]; then
+        printf "Downloading creampieElegance LORA...\n"
+        wget -q -O ${model_file} ${model_url}
+    fi
 
-if [[ ! -e ${model_file} ]]; then
-    printf "Downloading creamipeAndHairyPussy LORA...\n"
-    wget -q -O ${model_file} ${model_url}
-fi
+    # creamipeAndHairyPussy
+    model_file=${lora_models_dir}/creamipeAndHairyPussy.safetensors
+    model_url=https://civitai.com/api/download/models/18077
 
-# Pantyhose
-model_file=${checkpoints_dir}/Pantyhose.safetensors
-model_url=https://civitai.com/api/download/models/113135
+    if [[ ! -e ${model_file} ]]; then
+        printf "Downloading creamipeAndHairyPussy LORA...\n"
+        wget -q -O ${model_file} ${model_url}
+    fi
 
-if [[ ! -e ${model_file} ]]; then
-    printf "Downloading Pantyhose LORA...\n"
-    wget -q -O ${model_file} ${model_url}
-fi
+    # Pantyhose
+    model_file=${lora_models_dir}/Pantyhose.safetensors
+    model_url=https://civitai.com/api/download/models/113135
 
-# nudePantyhose
-model_file=${checkpoints_dir}/nudePantyhose.safetensors
-model_url=https://civitai.com/api/download/models/177649?type=Model&format=SafeTensor
+    if [[ ! -e ${model_file} ]]; then
+        printf "Downloading Pantyhose LORA...\n"
+        wget -q -O ${model_file} ${model_url}
+    fi
 
-if [[ ! -e ${model_file} ]]; then
-    printf "Downloading nudePantyhose LORA...\n"
-    wget -q -O ${model_file} ${model_url}
-fi
+    # nudePantyhose
+    model_file=${lora_models_dir}/nudePantyhose.safetensors
+    model_url=https://civitai.com/api/download/models/177649?type=Model&format=SafeTensor
 
-
-# if [[ $disk_space -ge 25000 ]]; then
-#     # v2-1_768-ema-pruned
-#     model_file=${sd_models_dir}/v2-1_768-ema-pruned.ckpt
-#     model_url=https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/main/v2-1_768-ema-pruned.ckpt
-    
-#     if [[ ! -e ${model_file} ]]; then
-#         printf "Downloading Stable Diffusion 2.1...\n"
-#         download ${model_url} ${model_file}
-#     fi
-    
-    
-#     # sd_xl_base_1
-#     model_file=${sd_models_dir}/sd_xl_base_1.0.safetensors
-#     model_url=https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors
-    
-#     if [[ ! -e ${model_file} ]]; then
-#         printf "Downloading Stable Diffusion XL base...\n"
-#         download ${model_url} ${model_file} 
-#     fi
-    
-#     # sd_xl_refiner_1
-#     model_file=${sd_models_dir}/sd_xl_refiner_1.0.safetensors
-#     model_url=https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors
-    
-#     if [[ ! -e ${model_file} ]]; then
-#         printf "Downloading Stable Diffusion XL refiner...\n"
-#         download ${model_url} ${model_file}
-#     fi
-# else
-#         printf "\nSkipping extra models (disk < 30GB)\n"
+    if [[ ! -e ${model_file} ]]; then
+        printf "Downloading nudePantyhose LORA...\n"
+        wget -q -O ${model_file} ${model_url}
+    fi
+else
+        printf "\nSkipping extra models (disk < 30GB)\n"
 fi
 printf "Downloading a few pruned controlnet models...\n"
 
