@@ -16,7 +16,7 @@ extensions_dir=${webui_dir}/extensions
 cn_models_dir=${extensions_dir}/sd-webui-controlnet/models
 vae_models_dir=${models_dir}/VAE
 upscale_models_dir=${models_dir}/ESRGAN
-lora_models_dir=${models_dir}/LORA
+lora_models_dir=${models_dir}/Lora
 
 printf "Downloading extensions..."
 cd $extensions_dir
@@ -100,6 +100,22 @@ else
     git clone https://github.com/Coyote-A/ultimate-upscale-for-automatic1111
 fi
 
+# ADetailer
+printf "Setting up Adetailer...\n"
+if [[ -d Adetailer ]]; then
+    (cd Adetailer && git pull)
+else
+    git clone https://github.com/Bing-su/adetailer.git
+fi
+
+#openpose editor
+
+printf "openpose-editor...\n"
+if [[ -d openpose-editor ]]; then
+    (cd openpose-editor && git pull)
+else
+    git clone https://github.com/fkunn1326/openpose-editor.git
+fi
 
 if [[ $disk_space -ge 25000 ]]; then
     # MajicMix_v7
