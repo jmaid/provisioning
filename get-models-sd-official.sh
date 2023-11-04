@@ -120,7 +120,7 @@ fi
 if [[ $disk_space -ge 25000 ]]; then
     
     # creamipeAndHairyPussy
-    model_file=${lora_models_dir}/creamipeAndHairyPussy.safetensors
+    model_file=${sd_models_dir}/creamipeAndHairyPussy.safetensors
     model_url=https://civitai.com/api/download/models/18077
 
     printf ${model_file}
@@ -144,7 +144,7 @@ if [[ $disk_space -ge 25000 ]]; then
     fi
 
     # creampieElegance
-    model_file=${lora_models_dir}/creampieElegance.safetensors
+    model_file=${sd_models_dir}/creampieElegance.safetensors
     model_url=https://civitai.com/api/download/models/152585
 
     if [[ ! -e ${model_file} ]]; then
@@ -152,10 +152,8 @@ if [[ $disk_space -ge 25000 ]]; then
         wget -q -O ${model_file} ${model_url}
     fi
 
-    
-
     # Pantyhose
-    model_file=${lora_models_dir}/Pantyhose.safetensors
+    model_file=${sd_models_dir}/Pantyhose.safetensors
     model_url=https://civitai.com/api/download/models/113135
 
     if [[ ! -e ${model_file} ]]; then
@@ -164,7 +162,7 @@ if [[ $disk_space -ge 25000 ]]; then
     fi
 
     # nudePantyhose
-    model_file=${lora_models_dir}/nudePantyhose.safetensors
+    model_file=${sd_models_dir}/nudePantyhose.safetensors
     model_url=https://civitai.com/api/download/models/177649?type=Model&format=SafeTensor
 
     if [[ ! -e ${model_file} ]]; then
@@ -173,7 +171,7 @@ if [[ $disk_space -ge 25000 ]]; then
     fi
 
     # tutu's HiSilk (Aurora 5D Black Pantyhose)
-    model_file=${lora_models_dir}/Aurora_5D_black_pantyhose.safetensors
+    model_file=${sd_models_dir}/Aurora_5D_black_pantyhose.safetensors
     model_url=https://civitai.com/api/download/models/116547
 
     if [[ ! -e ${model_file} ]]; then
@@ -182,7 +180,7 @@ if [[ $disk_space -ge 25000 ]]; then
     fi
 
     # tutu's HiSilk (Alice 8D White Pantyhose)
-    model_file=${lora_models_dir}/Alice_8d_white_pantyhose.safetensors
+    model_file=${sd_models_dir}/Alice_8d_white_pantyhose.safetensors
     model_url=https://civitai.com/api/download/models/116600
 
     if [[ ! -e ${model_file} ]]; then
@@ -191,7 +189,7 @@ if [[ $disk_space -ge 25000 ]]; then
     fi
 
     # maxidress
-    model_file=${lora_models_dir}/badbromaxidress.safetensors
+    model_file=${sd_models_dir}/badbromaxidress.safetensors
     model_url=https://civitai.com/api/download/models/77748?type=Model&format=SafeTensor
 
     if [[ ! -e ${model_file} ]]; then
@@ -200,7 +198,7 @@ if [[ $disk_space -ge 25000 ]]; then
     fi
 
     # Orgasming Face
-    model_file=${lora_models_dir}/edgOrgasm_v2.safetensors
+    model_file=${sd_models_dir}/edgOrgasm_v2.safetensors
     model_url=https://civitai.com/api/download/models/138273
 
     if [[ ! -e ${model_file} ]]; then
@@ -210,7 +208,7 @@ if [[ $disk_space -ge 25000 ]]; then
 
 
     # LEOSAM's Film Grain 
-    model_file=${lora_models_dir}/FilGrain.safetensors
+    model_file=${sd_models_dir}/FilGrain.safetensors
     model_url=https://civitai.com/api/download/models/112969?type=Model&format=SafeTensor
 
     if [[ ! -e ${model_file} ]]; then
@@ -219,7 +217,7 @@ if [[ $disk_space -ge 25000 ]]; then
     fi
 
     # LEOSAM's Polaroid Photo 
-    model_file=${lora_models_dir}/Polaroid.safetensors
+    model_file=${sd_models_dir}/Polaroid.safetensors
     model_url=https://civitai.com/api/download/models/102533?type=Model&format=SafeTensor
 
     if [[ ! -e ${model_file} ]]; then
