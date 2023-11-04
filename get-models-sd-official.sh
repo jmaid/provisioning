@@ -162,6 +162,61 @@ if [[ $disk_space -ge 25000 ]]; then
         printf "Downloading nudePantyhose LORA...\n"
         wget -q -O ${model_file} ${model_url}
     fi
+
+    # tutu's HiSilk (Aurora 5D Black Pantyhose)
+    model_file=${lora_models_dir}/Aurora_5D_black_pantyhose.safetensors
+    model_url=https://civitai.com/api/download/models/116547
+
+    if [[ ! -e ${model_file} ]]; then
+        printf "Downloading Aurora 5D Black Pantyhose LORA...\n"
+        wget -q -O ${model_file} ${model_url}
+    fi
+
+    # tutu's HiSilk (Alice 8D White Pantyhose)
+    model_file=${lora_models_dir}/Alice_8d_white_pantyhose.safetensors
+    model_url=https://civitai.com/api/download/models/116600
+
+    if [[ ! -e ${model_file} ]]; then
+        printf "Downloading Alice_8d_white_pantyhose LORA...\n"
+        wget -q -O ${model_file} ${model_url}
+    fi
+
+    # maxidress
+    model_file=${lora_models_dir}/badbromaxidress.safetensors
+    model_url=https://civitai.com/api/download/models/77748?type=Model&format=SafeTensor
+
+    if [[ ! -e ${model_file} ]]; then
+        printf "Downloading maxidress LORA...\n"
+        wget -q -O ${model_file} ${model_url}
+    fi
+
+    # Orgasming Face
+    model_file=${lora_models_dir}/edgOrgasm_v2.safetensors
+    model_url=https://civitai.com/api/download/models/138273
+
+    if [[ ! -e ${model_file} ]]; then
+        printf "Downloading Orgasming Face LORA...\n"
+        wget -q -O ${model_file} ${model_url}
+    fi
+
+
+    # LEOSAM's Film Grain 
+    model_file=${lora_models_dir}/FilGrain.safetensors
+    model_url=https://civitai.com/api/download/models/112969?type=Model&format=SafeTensor
+
+    if [[ ! -e ${model_file} ]]; then
+        printf "Downloading LEOSAM's Film Grain LORA...\n"
+        wget -q -O ${model_file} ${model_url}
+    fi
+
+    # LEOSAM's Polaroid Photo 
+    model_file=${lora_models_dir}/Polaroid.safetensors
+    model_url=https://civitai.com/api/download/models/102533?type=Model&format=SafeTensor
+
+    if [[ ! -e ${model_file} ]]; then
+        printf "Downloading Polaroid Photo LORA...\n"
+        wget -q -O ${model_file} ${model_url}
+    fi
 else
         printf "\nSkipping extra models (disk < 30GB)\n"
 fi
