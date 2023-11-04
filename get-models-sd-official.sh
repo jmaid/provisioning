@@ -123,14 +123,20 @@ if [[ $disk_space -ge 25000 ]]; then
     model_file=${lora_models_dir}/creamipeAndHairyPussy.safetensors
     model_url=https://civitai.com/api/download/models/18077
 
+    printf ${model_file}
+    printf "/n"     
+
     if [[ ! -e ${model_file} ]]; then
         printf "Downloading creamipeAndHairyPussy LORA...\n"
         wget -q -O ${model_file} ${model_url}
     fi
-    
+
     # MajicMix_v7
     model_file=${sd_models_dir}/majicMIX_realistic.safetensors
     model_url=https://civitai.com/api/download/models/176425
+
+    printf ${model_file}
+    printf "/n"     
 
     if [[ ! -e ${model_file} ]]; then
         printf "Downloading majicMIX_realistic...\n"
