@@ -120,15 +120,27 @@ fi
 if [[ $disk_space -ge 25000 ]]; then
     
 
-    # MajicMix_v7
-    model_file=${sd_models_dir}/majicMIX_realistic.safetensors
-    model_url=https://civitai.com/api/download/models/176425
+    ## MajicMix_v7
+    # model_file=${sd_models_dir}/majicMIX_realistic.safetensors
+    # model_url=https://civitai.com/api/download/models/176425
+
+    # printf ${model_file}
+    # printf "/n"     
+
+    # if [[ ! -e ${model_file} ]]; then
+    #     printf "Downloading majicMIX_realistic...\n"
+    #     wget -q -O ${model_file} ${model_url}
+    # fi
+
+    # T3
+    model_file=${sd_models_dir}/T3.safetensors
+    model_url=https://civitai.com/api/download/models/205395
 
     printf ${model_file}
     printf "/n"     
 
     if [[ ! -e ${model_file} ]]; then
-        printf "Downloading majicMIX_realistic...\n"
+        printf "Downloading T3...\n"
         wget -q -O ${model_file} ${model_url}
     fi
 
