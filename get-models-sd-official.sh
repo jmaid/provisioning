@@ -181,6 +181,14 @@ if [[ ! -e ${model_file} ]]; then
     download ${model_url} ${model_file}
 fi
 
+model_file=${cn_models_dir}/control_sd15_openpose.pth
+model_url=https://huggingface.co/lllyasviel/ControlNet/resolve/main/models/control_sd15_openpose.pth?download=true
+
+if [[ ! -e ${model_file} ]]; then
+    printf "Downloading Openpose_sd15...\n"
+    download ${model_url} ${model_file}
+fi
+
 printf "Downloading VAE...\n"
 
 model_file=${vae_models_dir}/vae-ft-ema-560000-ema-pruned.safetensors
