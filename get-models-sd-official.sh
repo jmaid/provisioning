@@ -243,6 +243,8 @@ fi
 
 ### LORAs
 
+mkdir lora_models_dir
+
 # creamipeAndHairyPussy
 model_file=${lora_models_dir}/creamipeAndHairyPussy.safetensors
 model_url=https://civitai.com/api/download/models/18077
